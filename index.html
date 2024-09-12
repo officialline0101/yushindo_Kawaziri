@@ -774,6 +774,29 @@ cell.setAttribute('data-date', slotStart.toISOString());
         }
     }
 
+// ×と×の間のセル数が3未満の場合、その間のセルを×にする部分の後に以下を追加
+for (let i = 0; i < 7; i++) {
+    const twentyOClockRow = times.indexOf('17:30');
+    const twentyOneOClockRow = times.indexOf('18:00');
+
+    for (let j = twentyOClockRow; j < times.length; j++) {
+        const cell = table.rows[j].cells[i + 1];
+        const aboveCell = table.rows[twentyOClockRow].cells[i + 1];
+        const dayOfWeek = new Date(currentDate); // 現在の日付を取得
+        dayOfWeek.setDate(dayOfWeek.getDate() + i); // 各日の曜日を取得
+
+        // 月火水木（1 = 月曜日, 2 = 火曜日, 3 = 水曜日, 4 = 木曜日）の場合のみ適用
+        if (dayOfWeek.getDay() >= 1 && dayOfWeek.getDay() <= 4) {
+            // 17:30のセルに×がある場合、18:00のセルも×にする
+            if (aboveCell.textContent === '✕' && j >= twentyOneOClockRow) {
+                cell.textContent = '✕';
+                cell.classList.remove('available');
+                cell.classList.add('unavailable');
+            }
+        }
+    }
+}
+
         }
 
         function updateCalendarHeader(date) {
