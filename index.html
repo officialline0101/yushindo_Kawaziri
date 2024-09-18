@@ -605,8 +605,9 @@ function updateCalendar(availability, businessDays) {
         }
     }
 
-// 現在の日付を取得
-const today = new Date();
+    // ここから下は既存のコードをそのまま続ける...
+    // 現在の日時を取得
+    const now = new Date();
 // 現在の日付が何曜日か取得 (0が日曜日, 1が月曜日...)
 const startDay = currentDate.getDay(); // 現在の曜日を取得
 
