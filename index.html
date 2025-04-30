@@ -1554,6 +1554,13 @@ if (businessEventTimes.length > 0) {
                         return acc;
                     }, 0);
 
+// 「営業日」中に他のイベントがある場合は✕
+if (isBusinessEventTime && count > 0) {
+    cell.textContent = '✕';
+    cell.classList.add('unavailable');
+    cell.setAttribute('data-date', slotStart.toISOString());
+    continue;
+}
                     // 月曜日から木曜日の11:30〜18:00は×にする条件
                     if (
                         (slotStart.getDay() >= 1 && slotStart.getDay() <= 4) && // 月曜日から木曜日
