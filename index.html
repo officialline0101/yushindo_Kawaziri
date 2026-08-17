@@ -603,6 +603,20 @@
             background-color: #26522c;
         }
 
+        /* 【予約を行う】ボタン上の最終確認テキスト（院の取り違え防止） */
+        .clinic-confirm {
+            margin: 20px 0 10px;
+            padding: 12px 10px;
+            border: 2px solid #26522c;
+            border-radius: 8px;
+            background-color: #eef4ef;
+            color: #1d3d21;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.5;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
@@ -867,6 +881,8 @@
 
         <div class="label">ご予約内容</div>
         <div id="displayInfo"></div> <!-- ここに選択された情報を表示します -->
+
+        <div class="clinic-confirm">こちらは川尻施術院への予約となります</div>
 
         <button class="submit-button" onclick="submitForm()" div id="section-message">予約を行う</button>
     </div>
@@ -1133,7 +1149,7 @@ function createTreatmentContent(title, imageUrl, description, time, price, first
 if (treatmentId === 'treatment1') {
     treatmentText.innerHTML = createTreatmentContent(
         '全身施術(鍼灸+整体)',
-        'https://www.dropbox.com/scl/fi/fbiyva593ko7098stxv89/.png?rlkey=awucy7pbeio5ko2012h3eoe8f&st=ckew9euy&raw=1',
+        'https://www.dropbox.com/scl/fi/u53tfkv7mh68bzuwxbc51/.png?rlkey=isq1tbpy22oz5gfgdrdm3iava&st=m80sjm32&raw=1',
         '悠心堂オススメのオーダーメイド治療です。<br>鍼灸のツボ刺激で内臓から調整し、整体ではカラダのコリと血流改善を狙います。<br>鍼は最小限の刺激で最大限の効果を狙い、<br>10～20本程度使います。<br>お灸は、やけどにならないお灸を使います。<br><span style="color: blue;">-全身症状の改善・カラダのメンテナンスを希望の方へ。</span>',
         '90分',
         '6,500円',
@@ -1169,7 +1185,7 @@ if (treatmentId === 'treatment1') {
 } else if (treatmentId === 'treatment5') {
     treatmentText.innerHTML = createTreatmentContent(
         '全身施術(鍼灸+整体)',
-        'https://www.dropbox.com/scl/fi/fbiyva593ko7098stxv89/.png?rlkey=awucy7pbeio5ko2012h3eoe8f&st=ckew9euy&raw=1',
+        'https://www.dropbox.com/scl/fi/u53tfkv7mh68bzuwxbc51/.png?rlkey=isq1tbpy22oz5gfgdrdm3iava&st=m80sjm32&raw=1',
         '悠心堂オススメのオーダーメイド治療です。<br>鍼灸のツボ刺激で内臓から調整し、整体ではカラダのコリと血流改善を狙います。<br>鍼は最小限の刺激で最大限の効果を狙い、<br>10～20本程度使います。<br>お灸は、やけどにならないお灸を使います。<br><span style="color: blue;">-全身症状の改善・カラダのメンテナンスを希望の方へ。</span>',
         '60分',
         '6,500円',
