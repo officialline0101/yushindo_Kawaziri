@@ -821,7 +821,7 @@
             <button type="button" id="repeatVisit" onclick="selectVisit(this)">2回目以降</button>
         </div>
         
-        <div class="label" id="course">メニューをお選びください</div>
+        <div class="label" id="course">メニューをお選びください<span class="required">必須</span></div>
         <div class="info-text">※メニューを選択すると空き状況のカレンダーが表示されます</div>
         <div class="symptoms">
             <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="">全身施術(鍼灸+整体)</button>
@@ -1369,6 +1369,11 @@ if (treatmentId === 'treatment1') {
 
             if (!formData.visitCount) {
                 alert('ご来院回数を選択してください。');
+                return;
+            }
+
+            if (!formData.selectedSymptom) {
+                alert('メニューを選択してください。');
                 return;
             }
 
