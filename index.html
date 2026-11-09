@@ -1596,6 +1596,18 @@ if (isBusinessEventTime && count > 0) {
                         continue;
                     }
 
+                    // 金曜日は施術終了が15:30を超える枠を✕にする（9:00〜15:30）
+                    if (slotStart.getDay() === 5) {
+                        const fridayClosing = new Date(slotStart);
+                        fridayClosing.setHours(15, 30, 0, 0);
+                        if (slotEnd > fridayClosing) {
+                            cell.textContent = '✕';
+                            cell.classList.add('unavailable');
+                            cell.setAttribute('data-date', slotStart.toISOString());
+                            continue;
+                        }
+                    }
+
                     // 12:30 - 13:59 を✕に設定（月曜日から木曜日のみ）
                     if (
                         (slotStart.getDay() >= 1 && slotStart.getDay() <= 4) && // 月曜日から木曜日
